@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.view.View;
+import android.view.accessibility.AccessibilityEvent;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,7 +19,9 @@ import java.util.List;
 public class MainActivity extends Activity {
     private EditText editText;
     private Button buttonSubmit;
+    private String currentAppName;
     private ArrayList<String> database; // 模拟数据库
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,6 +65,7 @@ public class MainActivity extends Activity {
         MyAccessibilityService anotherClass = new MyAccessibilityService();
         List<String> textList = anotherClass.getTextFromEditText();
     }
+
     @SuppressLint("SetTextI18n")
     private void showDropdown() {
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, database);
